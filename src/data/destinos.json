@@ -1,0 +1,46 @@
+[
+  {
+    "id": "machu-picchu",
+    "nombre": "Machu Picchu",
+    "descripcion": "La impresionante ciudadela inca en la cima de los Andes, una de las siete maravillas del mundo moderno.",
+    "departamento": "Cusco",
+    "presupuesto": "alto",
+    "dias_minimos": 3,
+    "intereses": ["arqueología", "aventura", "historia"],
+    "acompanantes": ["solo", "pareja", "familia", "amigos"],
+    "imagen": "/destinos/machu-picchu.jpg"
+  },
+  {
+    "id": "huacachina",
+    "nombre": "Oasis de la Huacachina",
+    "descripcion": "Un oasis natural rodeado de imponentes dunas de arena en medio del desierto de Ica, ideal para sandboard y paseos en tubular.",
+    "departamento": "Ica",
+    "presupuesto": "bajo",
+    "dias_minimos": 1,
+    "intereses": ["aventura", "naturaleza", "relajación"],
+    "acompanantes": ["pareja", "amigos", "solo"],
+    "imagen": "/destinos/huacachina.jpg"
+  },
+  {
+    "id": "paracas",
+    "nombre": "Reserva Nacional de Paracas e Islas Ballestas",
+    "descripcion": "Reserva marina costera donde el desierto se encuentra con el mar. Avistamiento de lobos marinos, pingüinos de Humboldt y aves guaneras.",
+    "departamento": "Ica",
+    "presupuesto": "medio",
+    "dias_minimos": 2,
+    "intereses": ["naturaleza", "playa", "relajación"],
+    "acompanantes": ["familia", "pareja", "amigos", "solo"],
+    "imagen": "/destinos/paracas.jpg"
+  },
+  {
+    "id": "canon-del-colca",
+    "nombre": "Cañón del Colca",
+    "descripcion": "Uno de los cañones más profundos del mundo, famoso por el majestuoso vuelo del cóndor andino y sus paisajes termales.",
+    "departamento": "Arequipa",
+    "presupuesto": "medio",
+    "dias_minimos": 2,
+    "intereses": ["aventura", "naturaleza", "cultura"],
+    "acompanantes": ["solo", "pareja", "amigos"],
+    "imagen": "/destinos/colca.jpg"
+  }
+]

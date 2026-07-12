@@ -1,65 +1,81 @@
-import Image from "next/image";
+import React from "react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="relative flex flex-1 flex-col items-center justify-center overflow-hidden px-4 py-24 sm:px-6 lg:px-8">
+      {/* Decorative background grid and gradients */}
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(120%_120%_at_50%_10%),#fff_40%,#fed7aa_70%,#ffedd5_100%] dark:bg-[radial-gradient(120%_120%_at_50%_10%),#09090b_50%,#2d1b10_80%,#431407_100%]" />
+      
+      {/* Glowing accent lights */}
+      <div className="absolute top-1/4 left-1/2 -z-10 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-500/20 blur-[100px] dark:bg-orange-600/10" />
+      <div className="absolute bottom-10 left-10 -z-10 h-96 w-96 rounded-full bg-rose-500/10 blur-[120px] dark:bg-rose-900/5" />
+
+      {/* Main Container */}
+      <div className="w-full max-w-xl text-center">
+        {/* Peruvian Sun Icon / Logo */}
+        <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-tr from-amber-500 to-rose-500 p-0.5 shadow-xl shadow-amber-500/10 dark:shadow-orange-950/20 animate-fade-in">
+          <div className="flex h-full w-full items-center justify-center rounded-[14px] bg-white dark:bg-zinc-950">
+            <svg
+              className="h-10 w-10 text-amber-500 dark:text-orange-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={1.5}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              {/* Custom abstract sun & mountain path */}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 20l4-6 3 4 5-8 3 5"
+              />
+            </svg>
+          </div>
+        </div>
+
+        {/* Brand Name */}
+        <h1 className="bg-gradient-to-b from-zinc-900 via-zinc-850 to-zinc-700 bg-clip-text text-6xl font-extrabold tracking-tight text-transparent dark:from-white dark:via-zinc-100 dark:to-zinc-400 sm:text-7xl">
+          Puriy
+        </h1>
+
+        {/* Subtitle */}
+        <p className="mt-6 text-lg leading-8 text-zinc-650 dark:text-zinc-350 font-medium sm:text-xl">
+          Descubre el Perú según tu presupuesto
+        </p>
+
+        {/* CTA Button */}
+        <div className="mt-10 flex items-center justify-center">
+          <button
+            className="group relative flex items-center justify-center gap-2 overflow-hidden rounded-full bg-zinc-900 px-8 py-4 text-sm font-semibold text-white shadow-md transition-all duration-305 hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 hover:shadow-xl hover:shadow-amber-500/10 dark:hover:shadow-orange-950/20 active:scale-95"
+            type="button"
+          >
+            <span>Descubrir destinos</span>
+            <svg
+              className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+              />
+            </svg>
+            <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-amber-500/10 to-rose-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          </button>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
+
+      {/* Footer */}
+      <footer className="absolute bottom-6 text-center text-xs text-zinc-400 dark:text-zinc-600">
+        Puriy © {new Date().getFullYear()} — Explora los tesoros del Perú
+      </footer>
     </div>
   );
 }
