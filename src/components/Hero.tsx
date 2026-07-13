@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -19,18 +20,18 @@ export default function Hero() {
             Puriy te ayuda a encontrar destinos que realmente encajan contigo.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <button
-              className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[#193D32] hover:bg-[#31594A] text-white text-base font-bold shadow-md shadow-emerald-950/10 transition-all active:scale-98 cursor-pointer"
-              type="button"
+            <Link
+              href="/recomendador"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[#193D32] hover:bg-[#31594A] focus:bg-[#31594A] text-white text-base font-bold shadow-md shadow-emerald-950/10 focus:outline-none focus:ring-2 focus:ring-[#C96438] focus:ring-offset-2 transition-all active:scale-98 cursor-pointer"
             >
               Encontrar mi destino
-            </button>
-            <button
-              className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-[#193D32] text-[#193D32] hover:bg-[#193D32]/5 text-base font-bold transition-all active:scale-98 cursor-pointer"
-              type="button"
+            </Link>
+            <Link
+              href="/explorar"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-[#193D32] text-[#193D32] hover:bg-[#193D32]/5 focus:bg-[#193D32]/5 focus:outline-none focus:ring-2 focus:ring-[#C96438] focus:ring-offset-2 transition-all active:scale-98 cursor-pointer"
             >
               Explorar el Perú
-            </button>
+            </Link>
           </div>
         </div>
 

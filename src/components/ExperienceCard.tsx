@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ExperienceCardProps {
   nombre: string;
@@ -15,8 +16,10 @@ export default function ExperienceCard({
   imagen,
 }: ExperienceCardProps) {
   return (
-    <div className="group relative w-full aspect-square md:aspect-[4/5] rounded-3xl overflow-hidden shadow-[0_4px_16px_rgba(38,36,31,0.02)] hover:shadow-[0_12px_24px_rgba(38,36,31,0.06)] hover:translate-y-[-2px] transition-all duration-300 border border-[#E8E2D8]/50">
-      
+    <Link
+      href="/experiencias"
+      className="group relative w-full aspect-square md:aspect-[4/5] rounded-3xl overflow-hidden shadow-[0_4px_16px_rgba(38,36,31,0.02)] hover:shadow-[0_12px_24px_rgba(38,36,31,0.06)] hover:translate-y-[-2px] focus:translate-y-[-2px] focus:outline-none focus:ring-2 focus:ring-[#C96438] focus:ring-offset-2 transition-all duration-300 border border-[#E8E2D8]/50 cursor-pointer"
+    >
       {/* Background Image */}
       <Image
         src={imagen}
@@ -34,7 +37,7 @@ export default function ExperienceCard({
       </div>
 
       {/* Content */}
-      <div className="absolute inset-0 p-5 flex flex-col justify-end text-white">
+      <div className="absolute inset-0 p-5 flex flex-col justify-end text-white text-left">
         <h4 className="font-serif text-lg md:text-xl font-bold leading-tight tracking-tight">
           {nombre}
         </h4>
@@ -46,6 +49,6 @@ export default function ExperienceCard({
         </span>
       </div>
 
-    </div>
+    </Link>
   );
 }

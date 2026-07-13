@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -30,36 +31,36 @@ export default function Footer() {
 
         {/* Links */}
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-          <a
-            href="#"
-            className="text-sm font-semibold text-[#26241F]/70 hover:text-[#C96438] transition-colors"
+          <Link
+            href="/explorar"
+            className="text-sm font-semibold text-[#26241F]/70 hover:text-[#C96438] focus:text-[#C96438] focus:outline-none transition-colors"
           >
             Explorar
-          </a>
-          <a
-            href="#"
-            className="text-sm font-semibold text-[#26241F]/70 hover:text-[#C96438] transition-colors"
+          </Link>
+          <Link
+            href="/experiencias"
+            className="text-sm font-semibold text-[#26241F]/70 hover:text-[#C96438] focus:text-[#C96438] focus:outline-none transition-colors"
           >
             Experiencias
-          </a>
-          <a
-            href="#"
-            className="text-sm font-semibold text-[#26241F]/70 hover:text-[#C96438] transition-colors"
+          </Link>
+          <Link
+            href="/favoritos"
+            className="text-sm font-semibold text-[#26241F]/70 hover:text-[#C96438] focus:text-[#C96438] focus:outline-none transition-colors"
           >
             Favoritos
-          </a>
-          <a
-            href="#"
-            className="text-sm font-semibold text-[#26241F]/70 hover:text-[#C96438] transition-colors"
+          </Link>
+          <Link
+            href="/guias"
+            className="text-sm font-semibold text-[#26241F]/70 hover:text-[#C96438] focus:text-[#C96438] focus:outline-none transition-colors"
           >
             Fuentes de información
-          </a>
-          <a
-            href="#"
-            className="text-sm font-semibold text-[#26241F]/70 hover:text-[#C96438] transition-colors"
+          </Link>
+          <Link
+            href="/acerca-de"
+            className="text-sm font-semibold text-[#26241F]/70 hover:text-[#C96438] focus:text-[#C96438] focus:outline-none transition-colors"
           >
             Contacto
-          </a>
+          </Link>
         </div>
 
         {/* Final text */}

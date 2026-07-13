@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 
 export default function MapPreview() {
   const [activeMarker, setActiveMarker] = useState<string | null>(null);
@@ -28,15 +29,15 @@ export default function MapPreview() {
         <p className="mt-4 text-sm md:text-base leading-relaxed text-[#26241F]/70">
           Haz clic en los marcadores interactivos para descubrir destinos mágicos en las regiones de la costa, la sierra y la selva peruana.
         </p>
-        <a
-          href="#"
-          className="mt-6 text-sm font-bold text-[#193D32] hover:text-[#C96438] inline-flex items-center gap-2 border-b-2 border-[#193D32] hover:border-[#C96438] pb-0.5 transition-all"
+        <Link
+          href="/explorar"
+          className="mt-6 text-sm font-bold text-[#193D32] hover:text-[#C96438] inline-flex items-center gap-2 border-b-2 border-[#193D32] hover:border-[#C96438] pb-0.5 focus:outline-none focus:ring-2 focus:ring-[#C96438] focus:ring-offset-2 rounded transition-all"
         >
           Ver mapa interactivo
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
           </svg>
-        </a>
+        </Link>
       </div>
 
       {/* Right side: Styled Silhouetted Map */}

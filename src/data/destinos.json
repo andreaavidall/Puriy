@@ -2,45 +2,366 @@
   {
     "id": "machu-picchu",
     "nombre": "Machu Picchu",
-    "descripcion": "La impresionante ciudadela inca en la cima de los Andes, una de las siete maravillas del mundo moderno.",
+    "descripcion": "La impresionante ciudadela inca en la cima de los Andes, una de las siete maravillas del mundo moderno, rodeada de imponentes montañas y terrazas agrícolas prehispánicas.",
     "departamento": "Cusco",
     "presupuesto": "alto",
     "dias_minimos": 3,
-    "intereses": ["arqueología", "aventura", "historia"],
+    "intereses": ["arqueología", "aventura", "historia", "cultura"],
     "acompanantes": ["solo", "pareja", "familia", "amigos"],
-    "imagen": "/destinos/machu-picchu.jpg"
+    "imagen": "/destinos/machu-picchu.png",
+    "como_llegar": "Tomar un vuelo a Cusco, luego viajar en tren desde Ollantaytambo hasta Aguas Calientes (Machu Picchu Pueblo), y finalmente tomar el autobús de subida a la ciudadela.",
+    "actividades": [
+      "Recorrido por la ciudadela principal",
+      "Caminata a la Puerta del Sol (Intipunku)",
+      "Ascenso a la montaña Huayna Picchu",
+      "Visita al Templo del Cóndor"
+    ],
+    "gastronomia": [
+      "Trucha a la parrilla",
+      "Chiri uchu",
+      "Lomo saltado tradicional"
+    ],
+    "mejor_epoca": "De mayo a octubre (temporada seca, días soleados)",
+    "ideal_para": "Amantes de la arqueología, parejas y familias que buscan una de las mejores experiencias culturales del mundo.",
+    "itinerario_sugerido": [
+      {
+        "dia": 1,
+        "titulo": "Llegada a Cusco y Aclimatación",
+        "descripcion": "Llegada al Cusco, descanso en el hotel para aclimatarse a la altura y caminata suave por la Plaza de Armas."
+      },
+      {
+        "dia": 2,
+        "titulo": "Valle Sagrado y Tren a Aguas Calientes",
+        "descripcion": "Visita a las ruinas de Ollantaytambo y embarque en el tren panorámico hacia Aguas Calientes por la tarde."
+      },
+      {
+        "dia": 3,
+        "titulo": "Exploración de Machu Picchu",
+        "descripcion": "Visita guiada por los principales circuitos de la ciudadela, toma de fotografías icónicas y retorno en tren a Cusco."
+      }
+    ],
+    "desglose_presupuesto": [
+      {
+        "concepto": "Tren de ida y retorno (Cusco-Aguas Calientes)",
+        "costo": 550
+      },
+      {
+        "concepto": "Boleto de entrada a la ciudadela de Machu Picchu",
+        "costo": 152
+      },
+      {
+        "concepto": "Autobús de subida y bajada (Aguas Calientes - Ruinas)",
+        "costo": 90
+      },
+      {
+        "concepto": "Alojamiento en Aguas Calientes (1 noche)",
+        "costo": 180
+      },
+      {
+        "concepto": "Alimentación y guiado compartido",
+        "costo": 228
+      }
+    ],
+    "fuentes": [
+      "Ministerio de Cultura del Perú",
+      "PromPerú - Portal Oficial de Turismo"
+    ],
+    "fecha_actualizacion": "12 de julio de 2026"
   },
   {
     "id": "huacachina",
     "nombre": "Oasis de la Huacachina",
-    "descripcion": "Un oasis natural rodeado de imponentes dunas de arena en medio del desierto de Ica, ideal para sandboard y paseos en tubular.",
+    "descripcion": "Un oasis natural rodeado de imponentes dunas de arena en medio del desierto de Ica, idóneo para disfrutar de la naturaleza, deportes de aventura y relajantes atardeceres desérticos.",
     "departamento": "Ica",
     "presupuesto": "bajo",
     "dias_minimos": 1,
-    "intereses": ["aventura", "naturaleza", "relajación"],
+    "intereses": ["aventura", "naturaleza", "relajación", "vida nocturna"],
     "acompanantes": ["pareja", "amigos", "solo"],
-    "imagen": "/destinos/huacachina.jpg"
+    "imagen": "/destinos/huacachina.png",
+    "como_llegar": "Viajar en autobús desde Lima hacia Ica (4 horas aprox.), y luego tomar un taxi local desde la ciudad de Ica hacia el Oasis (10 minutos).",
+    "actividades": [
+      "Paseo en carros areneros (tubulares)",
+      "Sandboard en las dunas gigantes",
+      "Paseo en bote a pedal por la laguna",
+      "Ver el atardecer desde la cima de las dunas"
+    ],
+    "gastronomia": [
+      "Carapulcra con sopa seca",
+      "Tejas de manjarblanco y pecana",
+      "Copa de Pisco Sour artesanal"
+    ],
+    "mejor_epoca": "Todo el año (clima soleado y cálido permanente)",
+    "ideal_para": "Jóvenes aventureros, grupos de amigos y parejas que buscan diversión en el desierto con presupuesto económico.",
+    "itinerario_sugerido": [
+      {
+        "dia": 1,
+        "titulo": "Día Completo de Aventura en el Desierto",
+        "descripcion": "Llegada al oasis al mediodía, almuerzo frente a la laguna, aventura en tubulares y sandboard a las 4:00 PM para presenciar el sunset, cena y fogata."
+      }
+    ],
+    "desglose_presupuesto": [
+      {
+        "concepto": "Pasaje en autobús (Lima-Ica ida y vuelta)",
+        "costo": 70
+      },
+      {
+        "concepto": "Aventura de tubulares y sandboard con instructor",
+        "costo": 45
+      },
+      {
+        "concepto": "Almuerzo tradicional en restaurante del oasis",
+        "costo": 35
+      }
+    ],
+    "fuentes": [
+      "Subgerencia de Turismo de la Municipalidad de Ica",
+      "Cámara Nacional de Turismo del Perú"
+    ],
+    "fecha_actualizacion": "10 de julio de 2026"
   },
   {
     "id": "paracas",
     "nombre": "Reserva Nacional de Paracas e Islas Ballestas",
-    "descripcion": "Reserva marina costera donde el desierto se encuentra con el mar. Avistamiento de lobos marinos, pingüinos de Humboldt y aves guaneras.",
+    "descripcion": "Reserva marina costera donde el desierto se encuentra de forma espectacular con el océano. Hogar de lobos marinos, pingüinos de Humboldt, aves guaneras y espectaculares playas desérticas.",
     "departamento": "Ica",
     "presupuesto": "medio",
     "dias_minimos": 2,
-    "intereses": ["naturaleza", "playa", "relajación"],
+    "intereses": ["naturaleza", "playa", "relajación", "aventura"],
     "acompanantes": ["familia", "pareja", "amigos", "solo"],
-    "imagen": "/destinos/paracas.jpg"
+    "imagen": "/destinos/paracas.png",
+    "como_llegar": "Viajar en coche o autobús directo desde Lima hacia Paracas por la autopista Panamericana Sur (aproximadamente 3.5 horas).",
+    "actividades": [
+      "Tour en deslizador a las Islas Ballestas",
+      "Recorrido por la Reserva Nacional de Paracas",
+      "Visita a la Playa Roja y Playa Yumaque",
+      "Práctica de ciclismo o kitesurf en la bahía"
+    ],
+    "gastronomia": [
+      "Ceviche de pescado fresco",
+      "Chicharrón de calamar",
+      "Arroz con mariscos norteño"
+    ],
+    "mejor_epoca": "De diciembre a abril (temporada de verano, excelente clima de playa)",
+    "ideal_para": "Amantes de la fauna marina, fotógrafos de naturaleza y familias que disfrutan de un ambiente marino tranquilo.",
+    "itinerario_sugerido": [
+      {
+        "dia": 1,
+        "titulo": "Islas Ballestas y Tarde de Bahía",
+        "descripcion": "Navegación temprano a las Islas Ballestas para observar fauna. Almuerzo marino en El Chaco y caminata por el malecón al atardecer."
+      },
+      {
+        "dia": 2,
+        "titulo": "Exploración Terrestre de la Reserva",
+        "descripcion": "Visita guiada a la Reserva de Paracas en bicicleta o minivan, conociendo el mirador de la Catedral, Playa Roja y centro de interpretación."
+      }
+    ],
+    "desglose_presupuesto": [
+      {
+        "concepto": "Tour guiado en deslizador a Islas Ballestas",
+        "costo": 50
+      },
+      {
+        "concepto": "Entrada combinada a la Reserva e Islas",
+        "costo": 22
+      },
+      {
+        "concepto": "Alojamiento en Paracas (1 noche)",
+        "costo": 150
+      },
+      {
+        "concepto": "Transporte y alimentación estimada",
+        "costo": 200
+      }
+    ],
+    "fuentes": [
+      "SERNANP - Servicio Nacional de Áreas Naturales Protegidas",
+      "Asociación de Operadores Turísticos de Paracas"
+    ],
+    "fecha_actualizacion": "11 de julio de 2026"
   },
   {
     "id": "canon-del-colca",
     "nombre": "Cañón del Colca",
-    "descripcion": "Uno de los cañones más profundos del mundo, famoso por el majestuoso vuelo del cóndor andino y sus paisajes termales.",
+    "descripcion": "Uno de los cañones más profundos y majestuosos del planeta, famoso por los andenes agrícolas incas, pueblos tradicionales y el avistamiento del cóndor andino.",
     "departamento": "Arequipa",
     "presupuesto": "medio",
     "dias_minimos": 2,
-    "intereses": ["aventura", "naturaleza", "cultura"],
+    "intereses": ["aventura", "naturaleza", "cultura", "relajación"],
     "acompanantes": ["solo", "pareja", "amigos"],
-    "imagen": "/destinos/colca.jpg"
+    "imagen": "/destinos/colca.png",
+    "como_llegar": "Viajar en autobús turísticos o minivan desde la ciudad de Arequipa hacia el pueblo de Chivay (aproximadamente 3.5 horas de viaje).",
+    "actividades": [
+      "Avistamiento de cóndores en la Cruz del Cóndor",
+      "Baño en las aguas termales de Chacapi",
+      "Visita al mirador de los Andes (Patapampa)",
+      "Recorrido por los templos coloniales de Yanque y Coporaque"
+    ],
+    "gastronomia": [
+      "Rocoto relleno arequipeño",
+      "Caldo de lomo",
+      "Queso helado tradicional"
+    ],
+    "mejor_epoca": "De abril a noviembre (temporada seca y despejada)",
+    "ideal_para": "Amantes del trekking de montaña, la cultura andina viva y la observación de aves.",
+    "itinerario_sugerido": [
+      {
+        "dia": 1,
+        "titulo": "Ruta de Arequipa a Chivay",
+        "descripcion": "Partida desde Arequipa, parada en la Reserva de Salinas y Aguada Blanca para ver vicuñas. Llegada a Chivay y visita a las aguas termales."
+      },
+      {
+        "dia": 2,
+        "titulo": "Cruz del Cóndor y Retorno",
+        "descripcion": "Salida muy temprano hacia la Cruz del Cóndor para presenciar el vuelo. Parada en miradores tradicionales de andenerías y retorno a Arequipa."
+      }
+    ],
+    "desglose_presupuesto": [
+      {
+        "concepto": "Boleto Turístico del Colca (nacionales)",
+        "costo": 20
+      },
+      {
+        "concepto": "Tour guiado de 2 días desde Arequipa",
+        "costo": 180
+      },
+      {
+        "concepto": "Alojamiento básico en Chivay (1 noche)",
+        "costo": 80
+      },
+      {
+        "concepto": "Ingreso a baños termales y alimentación",
+        "costo": 100
+      }
+    ],
+    "fuentes": [
+      "AUTOCOLLCA - Autoridad Autónoma del Colca",
+      "Gerencia Regional de Comercio Exterior y Turismo de Arequipa"
+    ],
+    "fecha_actualizacion": "08 de julio de 2026"
+  },
+  {
+    "id": "oxapampa",
+    "nombre": "Oxapampa",
+    "descripcion": "Hermosa y acogedora provincia de la selva central del Perú, conocida por su herencia y arquitectura austro-alemana, bosques nublados, plantaciones de café y ganadería sostenible.",
+    "departamento": "Pasco",
+    "presupuesto": "medio",
+    "dias_minimos": 3,
+    "intereses": ["naturaleza", "descanso", "cultura", "gastronomía"],
+    "acompanantes": ["sola", "pareja", "amigos", "familia"],
+    "imagen": "/destinos/colca.png",
+    "como_llegar": "Viajar en autobús interprovincial nocturno directo desde Lima hacia Oxapampa (aproximadamente 8-10 horas de viaje cruzando los Andes centrales).",
+    "actividades": [
+      "Visita a la Catarata del Río Tigre",
+      "Recorrido por las casas típicas de madera austro-alemanas",
+      "Visita guiada al Parque Nacional Yanachaga Chemillén",
+      "Cata y degustación de lácteos y cervezas artesanales en fábricas locales"
+    ],
+    "gastronomia": [
+      "Parrilla oxapampina (carnes locales)",
+      "Sopa de pelotas de sémola",
+      "Helado artesanal de frutas exóticas (quito quito, maracuyá)"
+    ],
+    "mejor_epoca": "De mayo a octubre (menos lluvias, carreteras seguras)",
+    "ideal_para": "Familias y parejas que buscan tranquilidad, aire puro, desconexión total y contacto directo con la naturaleza.",
+    "itinerario_sugerido": [
+      {
+        "dia": 1,
+        "titulo": "Recorrido por la Ciudad de Madera",
+        "descripcion": "Llegada por la mañana, instalación en el albergue. Paseo por la plaza de armas de madera, visita a la Iglesia de Santa Rosa y almuerzo ganadero tradicional."
+      },
+      {
+        "dia": 2,
+        "titulo": "Naturaleza en la Catarata Río Tigre",
+        "descripcion": "Caminata corta hacia la impresionante catarata Río Tigre cruzando puentes colgantes, visita a miradores de aves y cena alemana."
+      },
+      {
+        "dia": 3,
+        "titulo": "Chontabamba e Insumos Locales",
+        "descripcion": "Paseo por el distrito de Chontabamba, visita a la planta de lácteos Floralp, caverna Tunqui Cueva y compra de café y miel orgánica antes del retorno."
+      }
+    ],
+    "desglose_presupuesto": [
+      {
+        "concepto": "Boleto de autobús Lima-Oxapampa (ida y vuelta)",
+        "costo": 140
+      },
+      {
+        "concepto": "Alojamiento en cabaña típica (2 noches)",
+        "costo": 200
+      },
+      {
+        "concepto": "Entradas a atractivos y tours locales guiados",
+        "costo": 80
+      },
+      {
+        "concepto": "Alimentación completa y compras locales",
+        "costo": 120
+      }
+    ],
+    "fuentes": [
+      "Municipalidad Provincial de Oxapampa - Oficina de Turismo",
+      "SERNANP - Jefatura del Parque Yanachaga Chemillén"
+    ],
+    "fecha_actualizacion": "05 de julio de 2026"
+  },
+  {
+    "id": "lunahuana",
+    "nombre": "Lunahuaná",
+    "descripcion": "El epicentro de los deportes de aventura y la producción vitivinícola al sur de Lima. Un soleado valle bañado por el río Cañete, ideal para escapadas rápidas de fin de semana.",
+    "departamento": "Lima",
+    "presupuesto": "bajo",
+    "dias_minimos": 2,
+    "intereses": ["aventura", "gastronomía", "descanso", "naturaleza"],
+    "acompanantes": ["pareja", "amigos", "familia"],
+    "imagen": "/destinos/huacachina.png",
+    "como_llegar": "Viajar en coche particular o autobús desde Lima hacia Cañete (Panamericana Sur) y desviar hacia la carretera de Lunahuaná (2.5 a 3 horas totales).",
+    "actividades": [
+      "Canotaje en el río Cañete (nivel básico a intermedio)",
+      "Práctica de canopy (tirolesa) sobre el valle",
+      "Paseo en cuatrimotos por senderos agrícolas",
+      "Visita guiada y cata gratuita en bodegas de pisco y vino"
+    ],
+    "gastronomia": [
+      "Sopa seca con carapulcra",
+      "Camarones al jugo",
+      "Arroz con mariscos y pisco sour"
+    ],
+    "mejor_epoca": "Todo el año (siempre hay sol y río apto para canotaje)",
+    "ideal_para": "Grupos de amigos y familias limeñas que buscan deportes extremos rápidos y un excelente clima campestre.",
+    "itinerario_sugerido": [
+      {
+        "dia": 1,
+        "titulo": "Adrenalina y Deporte de Río",
+        "descripcion": "Llegada al valle temprano, instrucción de canotaje y descenso por el río Cañete. Almuerzo de camarones en Catapalla y cata de piscos."
+      },
+      {
+        "dia": 2,
+        "titulo": "Cuatrimotos y Canopy en Altura",
+        "descripcion": "Recorrido en cuatrimotos por los viñedos, lanzamiento de canopy sobre el río, y almuerzo tradicional antes de retornar a Lima."
+      }
+    ],
+    "desglose_presupuesto": [
+      {
+        "concepto": "Transporte en colectivo / auto desde Lima (ida y vuelta)",
+        "costo": 80
+      },
+      {
+        "concepto": "Alojamiento en hotel con piscina en Lunahuaná (1 noche)",
+        "costo": 120
+      },
+      {
+        "concepto": "Paquete de deportes (Canotaje + Canopy + Cuatrimoto)",
+        "costo": 100
+      },
+      {
+        "concepto": "Alimentación completa y catas",
+        "costo": 50
+      }
+    ],
+    "fuentes": [
+      "Asociación de Guías de Canotaje y Aventura de Lunahuaná",
+      "Directorio de Bodegas de la Ruta del Pisco de Cañete"
+    ],
+    "fecha_actualizacion": "02 de julio de 2026"
   }
 ]

@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface DestinationCardProps {
   nombre: string;
@@ -18,12 +19,57 @@ export default function DestinationCard({
   presupuesto,
   imagen,
 }: DestinationCardProps) {
+  // Normalize destination name to get a URL-friendly slug
+  const slug = nombre
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
+
   const [isFavorite, setIsFavorite] = useState(false);
 
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("puriy-favorites");
+      if (stored) {
+        const list = JSON.parse(stored) as string[];
+        setIsFavorite(list.includes(slug));
+      }
+    } catch (e) {
+      console.error("Error reading localStorage favorites", e);
+    }
+  }, [slug]);
+
+  const toggleFavorite = (e: React.MouseEvent) => {
+    // Crucial: stop propagation so clicking the favorite button doesn't trigger the card's navigation
+    e.stopPropagation();
+    e.preventDefault();
+
+    try {
+      const stored = localStorage.getItem("puriy-favorites");
+      let list = stored ? (JSON.parse(stored) as string[]) : [];
+
+      if (list.includes(slug)) {
+        list = list.filter((id) => id !== slug);
+        setIsFavorite(false);
+      } else {
+        list.push(slug);
+        setIsFavorite(true);
+      }
+
+      localStorage.setItem("puriy-favorites", JSON.stringify(list));
+    } catch (err) {
+      console.error("Error updating localStorage favorites", err);
+    }
+  };
+
   return (
-    <div className="group w-full bg-white rounded-3xl border border-[#E8E2D8] overflow-hidden shadow-[0_4px_20px_rgba(38,36,31,0.02)] hover:shadow-[0_12px_32px_rgba(38,36,31,0.06)] hover:translate-y-[-2px] transition-all duration-300 flex flex-col md:flex-row h-full md:h-52">
-      
-      {/* Left side: Image */}
+    <Link
+      href={`/destinos/${slug}`}
+      className="group w-full bg-white rounded-3xl border border-[#E8E2D8] overflow-hidden shadow-[0_4px_20px_rgba(38,36,31,0.02)] hover:shadow-[0_12px_32px_rgba(38,36,31,0.06)] hover:translate-y-[-2px] focus:translate-y-[-2px] focus:outline-none focus:ring-2 focus:ring-[#C96438] focus:ring-offset-2 transition-all duration-300 flex flex-col md:flex-row h-full md:h-52 cursor-pointer"
+    >
+      {/* Left side: Image and absolute button */}
       <div className="relative w-full md:w-48 lg:w-56 h-48 md:h-full bg-[#E8E2D8] overflow-hidden flex-shrink-0">
         <Image
           src={imagen}
@@ -32,12 +78,12 @@ export default function DestinationCard({
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
         
-        {/* Favorite Button */}
+        {/* Favorite Button (stops propagation) */}
         <button
-          onClick={() => setIsFavorite(!isFavorite)}
-          className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm shadow-sm flex items-center justify-center text-[#26241F] hover:text-[#C96438] hover:scale-105 active:scale-95 transition-all cursor-pointer"
+          onClick={toggleFavorite}
+          className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm shadow-sm flex items-center justify-center text-[#26241F] hover:text-[#C96438] focus:text-[#C96438] focus:outline-none hover:scale-105 active:scale-95 transition-all cursor-pointer z-10"
           type="button"
-          aria-label="Agregar a favoritos"
+          aria-label={isFavorite ? `Quitar ${nombre} de favoritos` : `Agregar ${nombre} a favoritos`}
         >
           <svg
             className={`w-5 h-5 ${isFavorite ? "fill-[#C96438] stroke-[#C96438]" : "fill-none stroke-current"}`}
@@ -75,11 +121,10 @@ export default function DestinationCard({
             </span>
           </div>
 
-          {/* Action Button: Circular arrow */}
-          <button
-            className="w-11 h-11 rounded-full bg-[#193D32]/5 group-hover:bg-[#C96438] text-[#193D32] group-hover:text-white flex items-center justify-center transition-all duration-300 cursor-pointer"
-            type="button"
-            aria-label={`Ver detalles de ${nombre}`}
+          {/* Action Button: Circular arrow (cosmetic since card is a Link) */}
+          <div
+            className="w-11 h-11 rounded-full bg-[#193D32]/5 group-hover:bg-[#C96438] text-[#193D32] group-hover:text-white flex items-center justify-center transition-all duration-300"
+            aria-hidden="true"
           >
             <svg
               className="w-5 h-5 stroke-current fill-none transform -rotate-45 group-hover:rotate-0 transition-transform duration-300"
@@ -91,10 +136,9 @@ export default function DestinationCard({
               <path d="M5 12h14" />
               <path d="M12 5l7 7-7 7" />
             </svg>
-          </button>
+          </div>
         </div>
       </div>
-
-    </div>
+    </Link>
   );
 }

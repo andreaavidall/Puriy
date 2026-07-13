@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import SearchBar from "../components/SearchBar";
@@ -90,15 +91,15 @@ export default function Home() {
             <p className="mt-6 text-sm md:text-base leading-relaxed text-[#26241F]/70 max-w-sm">
               Seleccionados especialmente en base a tu perfil, tus intereses y el presupuesto estimado para tu viaje.
             </p>
-            <a
-              href="#"
-              className="mt-8 text-sm font-bold text-[#193D32] hover:text-[#C96438] inline-flex items-center gap-2 border-b-2 border-[#193D32] hover:border-[#C96438] pb-0.5 transition-all"
+            <Link
+              href="/explorar"
+              className="mt-8 text-sm font-bold text-[#193D32] hover:text-[#C96438] inline-flex items-center gap-2 border-b-2 border-[#193D32] hover:border-[#C96438] pb-0.5 focus:outline-none focus:ring-2 focus:ring-[#C96438] focus:ring-offset-2 rounded transition-all"
             >
               Ver todos los destinos
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
-            </a>
+            </Link>
           </div>
 
           {/* Right Column: Cards List */}
@@ -134,15 +135,15 @@ export default function Home() {
             <p className="mt-6 text-sm md:text-base leading-relaxed text-[#26241F]/70 max-w-sm">
               Conéctate con la cultura viva del Perú, explora paisajes inexplorados y apoya a las comunidades locales.
             </p>
-            <a
-              href="#"
-              className="mt-8 text-sm font-bold text-[#193D32] hover:text-[#C96438] inline-flex items-center gap-2 border-b-2 border-[#193D32] hover:border-[#C96438] pb-0.5 transition-all"
+            <Link
+              href="/experiencias"
+              className="mt-8 text-sm font-bold text-[#193D32] hover:text-[#C96438] inline-flex items-center gap-2 border-b-2 border-[#193D32] hover:border-[#C96438] pb-0.5 focus:outline-none focus:ring-2 focus:ring-[#C96438] focus:ring-offset-2 rounded transition-all"
             >
               Ver todas las experiencias
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
-            </a>
+            </Link>
           </div>
 
           {/* Right Column: Grid */}
