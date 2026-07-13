@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useFavorites } from "../hooks/useFavorites";
 
 interface DestinationCardProps {
   nombre: string;
@@ -27,40 +28,18 @@ export default function DestinationCard({
     .replace(/\s+/g, "-")
     .replace(/[^a-z0-9-]/g, "");
 
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem("puriy-favorites");
-      if (stored) {
-        const list = JSON.parse(stored) as string[];
-        setIsFavorite(list.includes(slug));
-      }
-    } catch (e) {
-      console.error("Error reading localStorage favorites", e);
-    }
-  }, [slug]);
+  const { isFavorite, addFavorite, removeFavorite, loaded } = useFavorites();
+  const isFav = isFavorite(slug);
 
   const toggleFavorite = (e: React.MouseEvent) => {
     // Crucial: stop propagation so clicking the favorite button doesn't trigger the card's navigation
     e.stopPropagation();
     e.preventDefault();
 
-    try {
-      const stored = localStorage.getItem("puriy-favorites");
-      let list = stored ? (JSON.parse(stored) as string[]) : [];
-
-      if (list.includes(slug)) {
-        list = list.filter((id) => id !== slug);
-        setIsFavorite(false);
-      } else {
-        list.push(slug);
-        setIsFavorite(true);
-      }
-
-      localStorage.setItem("puriy-favorites", JSON.stringify(list));
-    } catch (err) {
-      console.error("Error updating localStorage favorites", err);
+    if (isFav) {
+      removeFavorite(slug);
+    } else {
+      addFavorite(slug);
     }
   };
 
@@ -79,22 +58,24 @@ export default function DestinationCard({
         />
         
         {/* Favorite Button (stops propagation) */}
-        <button
-          onClick={toggleFavorite}
-          className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm shadow-sm flex items-center justify-center text-[#26241F] hover:text-[#C96438] focus:text-[#C96438] focus:outline-none hover:scale-105 active:scale-95 transition-all cursor-pointer z-10"
-          type="button"
-          aria-label={isFavorite ? `Quitar ${nombre} de favoritos` : `Agregar ${nombre} a favoritos`}
-        >
-          <svg
-            className={`w-5 h-5 ${isFavorite ? "fill-[#C96438] stroke-[#C96438]" : "fill-none stroke-current"}`}
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+        {loaded && (
+          <button
+            onClick={toggleFavorite}
+            className="absolute top-4 left-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm shadow-sm flex items-center justify-center text-[#26241F] hover:text-[#C96438] focus:text-[#C96438] focus:outline-none hover:scale-105 active:scale-95 transition-all cursor-pointer z-10"
+            type="button"
+            aria-label={isFav ? `Quitar ${nombre} de favoritos` : `Agregar ${nombre} a favoritos`}
           >
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-          </svg>
-        </button>
+            <svg
+              className={`w-5 h-5 ${isFav ? "fill-[#C96438] stroke-[#C96438]" : "fill-none stroke-current"}`}
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </button>
+        )}
       </div>
 
       {/* Right side: Content */}

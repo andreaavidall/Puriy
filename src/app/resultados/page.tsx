@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useFavorites } from "../../hooks/useFavorites";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -19,8 +20,9 @@ export default function ResultadosPage() {
   const router = useRouter();
   const [preferences, setPreferences] = useState<Preferences | null>(null);
   const [recommendations, setRecommendations] = useState<RecommendationResult[]>([]);
-  const [favorites, setFavorites] = useState<string[]>([]);
   const [loaded, setLoaded] = useState(false);
+
+  const { addFavorite, removeFavorite, isFavorite, loaded: favsLoaded } = useFavorites();
 
   useEffect(() => {
     // 1. Read preferences from sessionStorage
@@ -31,16 +33,6 @@ export default function ResultadosPage() {
       return;
     }
     setPreferences(pref);
-
-    // 2. Load favorites from localStorage
-    try {
-      const storedFavs = localStorage.getItem("puriy-favorites");
-      if (storedFavs) {
-        setFavorites(JSON.parse(storedFavs) as string[]);
-      }
-    } catch (e) {
-      console.error("Error reading favorites", e);
-    }
 
     // 3. Run Recommendation Engine
     const results = DESTINOS.map((d) => calculateRecommendation(d, pref));
@@ -55,17 +47,10 @@ export default function ResultadosPage() {
 
   // Handle Favorites toggle
   const toggleFavorite = (slug: string) => {
-    try {
-      let updatedFavs = [...favorites];
-      if (updatedFavs.includes(slug)) {
-        updatedFavs = updatedFavs.filter((f) => f !== slug);
-      } else {
-        updatedFavs.push(slug);
-      }
-      setFavorites(updatedFavs);
-      localStorage.setItem("puriy-favorites", JSON.stringify(updatedFavs));
-    } catch (e) {
-      console.error("Error saving favorites", e);
+    if (isFavorite(slug)) {
+      removeFavorite(slug);
+    } else {
+      addFavorite(slug);
     }
   };
 
@@ -126,7 +111,7 @@ export default function ResultadosPage() {
             {recommendations.map(({ destino, compatibilityScore, razones, presupuestoAjustado, advertencia }) => {
               // Ensure correct file extension for public image assets
               const imagePath = destino.imagen.replace(".jpg", ".png");
-              const isFav = favorites.includes(destino.id);
+              const isFav = isFavorite(destino.id);
 
               return (
                 <div
@@ -238,27 +223,29 @@ export default function ResultadosPage() {
                     >
                       Ver destino
                     </Link>
-                    <button
-                      onClick={() => toggleFavorite(destino.id)}
-                      className={`px-4 py-3 rounded-full border flex items-center justify-center transition-all cursor-pointer ${
-                        isFav
-                          ? "bg-red-50 border-red-200 text-[#C96438]"
-                          : "border-[#E8E2D8] hover:border-[#26241F]/30 text-[#26241F]/70"
-                      }`}
-                      type="button"
-                      aria-label="Guardar destino"
-                    >
-                      <svg
-                        className={`w-4 h-4 ${isFav ? "fill-[#C96438]" : "fill-none stroke-current"}`}
-                        viewBox="0 0 24 24"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                    {favsLoaded && (
+                      <button
+                        onClick={() => toggleFavorite(destino.id)}
+                        className={`px-4 py-3 rounded-full border flex items-center justify-center transition-all cursor-pointer ${
+                          isFav
+                            ? "bg-red-50 border-red-200 text-[#C96438]"
+                            : "border-[#E8E2D8] hover:border-[#26241F]/30 text-[#26241F]/70"
+                        }`}
+                        type="button"
+                        aria-label="Guardar destino"
                       >
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                      </svg>
-                      <span className="ml-1 text-xs font-bold">{isFav ? "Guardado" : "Guardar"}</span>
-                    </button>
+                        <svg
+                          className={`w-4 h-4 ${isFav ? "fill-[#C96438]" : "fill-none stroke-current"}`}
+                          viewBox="0 0 24 24"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg>
+                        <span className="ml-1 text-xs font-bold">{isFav ? "Guardado" : "Guardar"}</span>
+                      </button>
+                    )}
                   </div>
                 </div>
               );

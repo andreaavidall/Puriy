@@ -1,6 +1,7 @@
 "use client";
 
-import React, { use, useEffect, useState } from "react";
+import React, { use } from "react";
+import { useFavorites } from "../../../hooks/useFavorites";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound, useRouter } from "next/navigation";
@@ -60,36 +61,14 @@ export default function DestinoPage({ params }: PageProps) {
     notFound();
   }
 
-  const [isFav, setIsFav] = useState(false);
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem("puriy-favorites");
-      if (stored) {
-        const list = JSON.parse(stored) as string[];
-        setIsFav(list.includes(destino.id));
-      }
-    } catch (e) {
-      console.error("Error reading favorites", e);
-    }
-  }, [destino.id]);
+  const { isFavorite, addFavorite, removeFavorite, loaded } = useFavorites();
+  const isFav = isFavorite(destino.id);
 
   const toggleFavorite = () => {
-    try {
-      const stored = localStorage.getItem("puriy-favorites");
-      let list = stored ? (JSON.parse(stored) as string[]) : [];
-
-      if (list.includes(destino.id)) {
-        list = list.filter((id) => id !== destino.id);
-        setIsFav(false);
-      } else {
-        list.push(destino.id);
-        setIsFav(true);
-      }
-
-      localStorage.setItem("puriy-favorites", JSON.stringify(list));
-    } catch (e) {
-      console.error("Error saving favorites", e);
+    if (isFav) {
+      removeFavorite(destino.id);
+    } else {
+      addFavorite(destino.id);
     }
   };
 
@@ -160,26 +139,28 @@ export default function DestinoPage({ params }: PageProps) {
 
             {/* Favorite toggle and Return buttons */}
             <div className="mt-8 flex flex-wrap gap-3 w-full">
-              <button
-                onClick={toggleFavorite}
-                className={`flex-1 min-w-[140px] px-6 py-3 rounded-full border text-xs font-bold shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                  isFav
-                    ? "bg-red-50 border-red-200 text-[#C96438]"
-                    : "bg-white border-[#E8E2D8] hover:border-[#26241F]/30 text-[#26241F]/70"
-                }`}
-                type="button"
-              >
-                <svg
-                  className={`w-4 h-4 ${isFav ? "fill-[#C96438]" : "fill-none stroke-current"}`}
-                  viewBox="0 0 24 24"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+              {loaded && (
+                <button
+                  onClick={toggleFavorite}
+                  className={`flex-1 min-w-[140px] px-6 py-3 rounded-full border text-xs font-bold shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                    isFav
+                      ? "bg-red-50 border-red-200 text-[#C96438]"
+                      : "bg-white border-[#E8E2D8] hover:border-[#26241F]/30 text-[#26241F]/70"
+                  }`}
+                  type="button"
                 >
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                </svg>
-                {isFav ? "Guardado en favoritos" : "Guardar en favoritos"}
-              </button>
+                  <svg
+                    className={`w-4 h-4 ${isFav ? "fill-[#C96438]" : "fill-none stroke-current"}`}
+                    viewBox="0 0 24 24"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                  </svg>
+                  {isFav ? "Guardado en favoritos" : "Guardar en favoritos"}
+                </button>
+              )}
 
               <button
                 onClick={() => router.push("/resultados")}
